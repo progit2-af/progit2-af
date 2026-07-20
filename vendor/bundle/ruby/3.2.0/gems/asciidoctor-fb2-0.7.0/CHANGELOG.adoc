@@ -1,0 +1,84 @@
+= {project-name} Changelog
+:project-name: Asciidoctor FB2
+:project-handle: asciidoctor-fb2
+:slug: asciidoctor/{project-handle}
+:uri-project: https://github.com/{slug}
+
+This document provides a high-level view of the changes to the {project-name} by release.
+For a detailed view of what has changed, refer to the {uri-project}/commits/master[commit history] on GitHub.
+
+== 0.7.0 (2022-12-18) - @slonopotamus
+
+* fix handling of image paths with path separators
+* add support for image alignment. https://github.com/asciidoctor/asciidoctor-fb2/issues/16[#16]
+* add support for floating images
+* add naive admonition icons support. https://github.com/asciidoctor/asciidoctor-fb2/issues/18[#18]
+
+== 0.6.0 (2022-10-30) - @slonopotamus
+
+* bump fb2rb to 0.7.0
+
+== 0.5.1 (2021-04-01) - @slonopotamus
+
+* add basic support for stem blocks
+
+== 0.5.0 (2021-03-31) - @slonopotamus
+
+* add support for `indexterm` and `intexterm2` inline macros
+* add support for inline callouts
+* add support for open blocks
+* add support for example blocks
+* fix crash if document contains a page break
+* add support for floating title
+* fix crash if document contains thematic break
+
+== 0.4.0 (2021-02-14) - @slonopotamus
+
+* fix table cells markup
+* bump fb2rb to 0.6.0
+
+== 0.3.1 (2020-11-29) - @slonopotamus
+
+* fix crash on `+toc::[]+` macro
+* avoid adding `notes` body to FB2 if document doesn't have any footnotes
+* fix invalid XML syntax for table cells
+
+== 0.3.0 (2020-11-25) - @slonopotamus
+
+* output MIME type for FB2 embedded binary files. https://github.com/slonopotamus/asciidoctor-fb2/issues/19[#19]
+* handle `+image:file[]+` syntax for `+:front-cover-image:+` document attribute. https://github.com/slonopotamus/asciidoctor-fb2/issues/19[#19]
+
+== 0.2.4 (2020-11-24) - @slonopotamus
+
+* add support for table captions
+* fix images from subfolders not loaded in Calibre
+* add initial CSS support
+
+== 0.2.3 (2020-11-24) - @slonopotamus
+
+* add support for literal blocks
+* fix crash for `menu` inline macro without submenu. https://github.com/slonopotamus/asciidoctor-fb2/issues/15[#15]
+* add initial support for sidebar
+
+== 0.2.2 (2020-11-24) - @slonopotamus
+
+* do not crash on inline line break macro. https://github.com/slonopotamus/asciidoctor-fb2/issues/14[#14]
+* add support for verses
+* add support for quotes
+
+== 0.2.1 (2020-11-24) - @slonopotamus
+
+* add support for `kbd` inline macro. https://github.com/slonopotamus/asciidoctor-fb2/issues/13[#13]
+* add support for `btn` inline macro
+
+== 0.2.0 (2020-11-23) - @slonopotamus
+
+* add support for cover image via `+:front-cover-image:+` attribute. https://github.com/slonopotamus/asciidoctor-fb2/issues/3[#3]
+* update fb2rb to 0.3.0
+* add support for nested lists. https://github.com/slonopotamus/asciidoctor-fb2/issues/2[#2]
+* output uncompressed book if filename doesn't end with `.zip`
+* add support for `menu` inline macro. https://github.com/slonopotamus/asciidoctor-fb2/issues/12[#12]
+
+== 0.1.0 (2020-07-24) - @slonopotamus
+
+* initial release

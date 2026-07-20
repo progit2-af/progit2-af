@@ -1,0 +1,48 @@
+= {project-name} Changelog
+:project-name: FB2rb
+:project-handle: fb2rb
+:slug: slonopotamus/{project-handle}
+:uri-project: https://github.com/{slug}
+
+This document provides a high-level view of the changes to the {project-name} by release.
+For a detailed view of what has changed, refer to the {uri-project}/commits/master[commit history] on GitHub.
+
+== 0.7.0 (2022-10-30) @slonopotamus
+
+* Allow Nokogiri 1.13
+
+== 0.6.0 (2021-02-14) @slonopotamus
+
+* Allow Nokogiri 1.11
+
+== 0.5.0 (2020-12-07) - @slonopotamus
+
+* return `nil` from `FB2rb::Book.read_compressed` for empty ZIP files
+* **breaking change**: switch to named parameters instead of optional
+
+== 0.4.0 (2020-11-24) - @slonopotamus
+
+* add `Book::add_stylesheet` method
+
+== 0.3.0 (2020-07-27) - @slonopotamus
+
+* Support reading/writing uncompressed FB2. https://github.com/slonopotamus/fb2rb/issues/5[#5]
+
+== 0.2.1 (2020-07-24) - @slonopotamus
+
+* Fix field annotation on `FB2rb::TitleInfo::date`
+
+== 0.2.0 (2020-07-24) - @slonopotamus
+
+* Add support for reproducible builds
+* Remove broken `FB2rb::Book.to_ios`.
+Use `FB2rb::Book.write` instead.
+
+== 0.1.1 (2020-07-23) - @slonopotamus
+
+* Annotate field types
+* Fix serialization of `<publisher>` in `<document-info>`
+
+== 0.1.0 (2020-07-23) - @slonopotamus
+
+* Initial release

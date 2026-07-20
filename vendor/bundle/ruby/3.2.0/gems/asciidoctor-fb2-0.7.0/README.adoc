@@ -1,0 +1,82 @@
+= {project-name}
+Marat Radchenko <marat@slonopotamus.org>
+:project-name: Asciidoctor FB2
+:project-handle: asciidoctor-fb2
+:slug: asciidoctor/{project-handle}
+:source-highlighter: rouge
+:uri-project: https://github.com/{slug}
+:uri-ci: {uri-project}/actions?query=branch%3Amaster
+:uri-gem: https://rubygems.org/gems/{project-handle}
+
+image:https://img.shields.io/badge/zulip-join_chat-brightgreen.svg[project chat,link=https://asciidoctor.zulipchat.com/]
+image:https://img.shields.io/gem/v/{project-handle}.svg[Latest Release,link={uri-gem}]
+image:{uri-project}/workflows/CI/badge.svg?branch=main[Build Status,link={uri-ci}]
+
+{project-name} is an Asciidoctor extension for converting AsciiDoc documents directly to the FB2 e-book format.
+
+== Installation
+
+{project-name} is published on RubyGems.org.
+You can install the published gem using the following command:
+
+[source,shell script]
+----
+$ gem install asciidoctor-fb2
+----
+
+Assuming all the required gems install properly, verify you can run the `{project-handle}` script:
+
+[source,shell script]
+----
+$ asciidoctor-fb2 -v
+----
+
+If you see the version of {project-name} printed, you're ready to use {project-name}.
+
+== Usage
+
+Converting an AsciiDoc document to FB2 is as simple as passing your document to the `{project-handle}` command.
+This command should be available on your PATH if you installed the `{project-handle}` gem.
+Otherwise, you can find the command in the [path]_bin_ folder of the project.
+We also recommend specifying an output directory using the `-D` option flag.
+
+[source,shell]
+----
+$ asciidoctor-fb2 -D output path/to/book.adoc
+----
+
+When the script completes, you'll see the file [file]_book.fb2.zip_ appear in the [path]_output_ directory.
+Open that file with an FB2 reader to view the result.
+
+== FB2-related AsciiDoc Attributes
+
+The metadata in the generated FB2 file is populated from attributes in the AsciiDoc document.
+The names of the attributes and the metadata elements to which they map are documented in this section.
+
+.AsciiDoc attributes that control the FB2 metadata
+[cols="1m,3"]
+|===
+|Name |Description
+
+|uuid
+|Populates unique book identifier in FB2 metadata.
+
+|lang
+|Populates the content language in FB2 metadata.
+
+|keywords
+|Populates keywords list in FB2 metadata.
+The keywords should be represented as comma-separated values (CSV).
+
+|genres
+|Populates genres list in FB2 metadata.
+The genres should be represented as comma-separated values (CSV).
+
+|front-cover-image
+|Specifies path to front cover image.
+|===
+
+== Development
+
+After checking out the repo, run `bundle install` to install dependencies.
+Then, run `bundle exec rake spec` to run the tests.
