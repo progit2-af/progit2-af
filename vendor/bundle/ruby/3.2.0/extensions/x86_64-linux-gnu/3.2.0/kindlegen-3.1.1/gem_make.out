@@ -1,0 +1,19 @@
+current directory: /home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/kindlegen-3.1.1/ext
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby -rrubygems /home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/rake-13.2.1/exe/rake RUBYARCHDIR\=/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/extensions/x86_64-linux-gnu/3.2.0/kindlegen-3.1.1 RUBYLIBDIR\=/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/extensions/x86_64-linux-gnu/3.2.0/kindlegen-3.1.1
+rake aborted!
+SocketError: Failed to open TCP connection to web.archive.org:443 (getaddrinfo: No address associated with hostname) (SocketError)
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/kindlegen-3.1.1/ext/Rakefile:54:in `curl'
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/kindlegen-3.1.1/ext/Rakefile:47:in `block in create_task_for_unix'
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/rake-13.2.1/exe/rake:27:in `<main>'
+
+Caused by:
+SocketError: getaddrinfo: No address associated with hostname (SocketError)
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/kindlegen-3.1.1/ext/Rakefile:54:in `curl'
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/kindlegen-3.1.1/ext/Rakefile:47:in `block in create_task_for_unix'
+/home/runner/work/progit2-af/progit2-af/vendor/bundle/ruby/3.2.0/gems/rake-13.2.1/exe/rake:27:in `<main>'
+Tasks: TOP => default => install => kindlegen => kindlegen_linux_2.6_i386_v2_9.tar.gz
+(See full trace by running task with --trace)
+open(https://web.archive.org/web/20150803131026/https://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v2_9.tar.gz)
+save to kindlegen_linux_2.6_i386_v2_9.tar.gz
+
+rake failed, exit code 1

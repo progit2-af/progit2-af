@@ -1,0 +1,74 @@
+= {project-name}
+Marat Radchenko <marat@slonopotamus.org>
+:project-name: FB2rb
+:project-handle: fb2rb
+:slug: slonopotamus/{project-handle}
+:uri-project: https://github.com/{slug}
+:uri-ci: {uri-project}/actions?query=branch%3Amaster
+:uri-gem: https://rubygems.org/gems/{project-handle}
+
+image:https://img.shields.io/gem/v/{project-handle}.svg[Latest Release,link={uri-gem}]
+image:{uri-project}/workflows/CI/badge.svg?branch=master[Build Status,link={uri-ci}]
+
+{project-handle} is a http://gribuser.ru/xml/fictionbook/index.html.en[Fiction Book 2] parser/generator library written in Ruby.
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+[source,ruby]
+----
+gem 'fb2rb'
+----
+
+And then execute:
+
+[source,shell script]
+----
+$ bundle install
+----
+
+Or install it yourself as:
+
+[source,shell script]
+----
+$ gem install fb2rb
+----
+
+== Usage
+
+You can create FB2 book in memory and write it to file:
+
+[source,ruby]
+----
+require 'fb2rb'
+
+book = FB2rb::Book.new
+book.description.title_info.book_title = 'Book title'
+
+body = FB2rb::Body.new(nil, '<p>Book text</p>')
+book.bodies << body
+
+book.write_compressed('/path/to/book.fb2.zip')
+# or
+book.write_uncompressed('/path/to/book.fb2')
+----
+
+Also, you can read existing FB2 file:
+
+[source,ruby]
+----
+require 'fb2rb'
+
+book = FB2rb::Book.read_compressed('/path/to/book.fb2.zip')
+# or
+book = FB2rb::Book.read_uncompressed('/path/to/book.fb2')
+
+puts book.description.title_info.book_title
+puts book.bodies[0].content
+----
+
+== Development
+
+After checking out the repo, run `bundle install` to install dependencies.
+Then, run `bundle exec rake spec` to run the tests.
