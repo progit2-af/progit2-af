@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,10 +27,15 @@ jobs:
     - name: Compute tag name
       id: compute-tag
       run: |
-        echo Computing next tag number
-        LASTPATCH=$(git describe --tags | cut -d- -f1 | cut -d. -f3)
-        PATCH=$(($LASTPATCH+1))
-        echo "tagname=2.1.${PATCH}" >> $GITHUB_OUTPUT
+        echo "Computing next tag number"
+        LASTTAG=$(git tag --list '2.1.*' --sort=-v:refname | head -n 1)
+        if [ -z "$LASTTAG" ]; then
+          PATCH=0
+        else
+          LASTPATCH=$(echo "$LASTTAG" | cut -d. -f3)
+          PATCH=$((LASTPATCH + 1))
+        fi
+        echo "tagname=2.1.${PATCH}" >> "$GITHUB_OUTPUT"
 
     - name: Create release
       uses: ncipollo/release-action@v1
